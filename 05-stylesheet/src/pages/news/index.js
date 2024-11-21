@@ -1,14 +1,24 @@
 import React from "react";
+import { Link, Routes, Route } from "react-router-dom";
+import NewsCard from "./NewsCard";
+import NewsList from "./NewsList";
 
-import Meta from "../../components/Meta";
+import NewsData from "../../data/NewsData";
 
 const News = () => {
   return (
     <div>
-      {/* Route 처리를 적용 받는 페이지에서 이 컴포넌트를 중복 사용시 App.js 에서의 설정을 덮어쓰게 된다. */}
-      <Meta titel="News.js" description="여기는 News.js 파일 입니다" />
+      <h1>News</h1>
 
-      <h2>News</h2>
+      <nav>
+        <Link to="news_card">카드형</Link>&nbsp;|&nbsp;
+        <Link to="news_list">리스트형</Link>
+      </nav>
+
+      <Routes>
+        <Route path="/news_card" element={<NewsCard news={NewsData} />} />
+        <Route path="/news_list" element={<NewsList news={NewsData} />} />
+      </Routes>
     </div>
   );
 };

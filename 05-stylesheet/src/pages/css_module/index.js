@@ -1,14 +1,23 @@
 import React from "react";
 
-import Meta from "../../components/Meta";
+import myStyles from "../../assets/css/mystyle.module.css";
 
 const CssModule = () => {
   return (
     <div>
-      {/* Route 처리를 적용 받는 페이지에서 이 컴포넌트를 중복 사용시 App.js 에서의 설정을 덮어쓰게 된다. */}
-      <Meta titel="CssModule.js" description="여기는 CssModule.js 파일 입니다" />
+      <h1>CssClass</h1>
 
-      <h2>CssModule</h2>
+      <h3>변수에 저장된 CSS 클래스</h3>
+      <div className={myStyles.myCssBox} />
+
+      <h3>독립 클래스</h3>
+      <div className="myBorderBox" />
+
+      <h3>다중 클래스 적용(1) - 역따옴표 사용</h3>
+      <div className={`${myStyles["my-size"]} ${myStyles["my-bg"]}`} />
+
+      <h3>다중 클래스 적용(2) - 배열로 구성한 후 join 함수로 결합</h3>
+      <div className={[myStyles["my-size"], myStyles["my-bg"]].join(" ")} />
     </div>
   );
 };
