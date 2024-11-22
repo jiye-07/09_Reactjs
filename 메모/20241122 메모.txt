@@ -1,0 +1,10 @@
+${TM_FILENAME_BASE/(.*)/${1:/pascalcase}/g} 
+리액트 컴포넌트 my_react_component 
+
+설정에 코드조각
+이번에는 자바스크립트에 넣으세요 
+붙여넣기 
+
+카멜이랑 비슷한데 대문자로 시작하는거 파스칼케이스 pascal
+
+링크에 display
