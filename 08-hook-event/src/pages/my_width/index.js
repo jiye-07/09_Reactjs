@@ -1,14 +1,15 @@
 import React, { memo } from "react";
 
-import styled from "styled-components";
-
-const MyWidthContainer = styled.div``;
+import { useMyWidth } from "../../hooks/MyHooks";
 
 const MyWidth = memo(() => {
+  const myWidth = useMyWidth();
+
   return (
-    <MyWidthContainer>
+    <div>
       <h2>MyWidth</h2>
-    </MyWidthContainer>
+      <h2>windowWidth: {myWidth}</h2>
+    </div>
   );
 });
 
