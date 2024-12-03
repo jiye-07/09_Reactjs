@@ -1,0 +1,36 @@
+2024 12 03
+
+"scripts": {
+    "start": "react-scripts start | hossam-server ",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+
+- yarn start 누르면 백엔드랑 같이 실행됨
+ (package.json 에서 설정할수 있음 / scripts 에서 수정하면 됨)  
+
+"react-loader-spinner": "^6.1.6", 
+
+ render(<ThreeDots
+  visible={true}
+  height="80"
+  width="80"
+  color="#4fa94d"
+  radius="9"
+  ariaLabel="three-dots-loading"
+  wrapperStyle={{}}
+  wrapperClass=""
+  />)
+
+사람스타일에 따라 
+코딩하는 스타일이 다름   
+
+리액트에 가장 큰 장점
+나만의 코드 생성 가능
+
+#즉시 실행함수
+
+#상태변수에 담아서 보내주기 
+
+#코드 재사용 방법에 대해 
