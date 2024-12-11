@@ -11,54 +11,12 @@ import { getList } from "../../slices/TitanicSlice";
 /** 컴포넌트 참조 */
 import Spinner from "../../components/Spinner";
 // https://www.npmjs.com/package/react-countup
-import CountUp from "react-countup";
+// import CountUp from "react-countup";
 
-const DashboardContainer = styled.div`
-  .counter-box {
-    display: flex;
-    justify-content: space-between;
+import ScoreBoard from "./ScoreBoard";
+import GraphBoard from "./GraphBoard";
 
-    .my-counter {
-      margin: 0 10px;
-      width: 25%;
-      height: 140px;
-      background-color: #06f6;
-      border-radius: 10px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-
-      &:first-child {
-        margin-left: 0;
-      }
-
-      &:last-child {
-        margin-right: 0;
-      }
-
-      h2 {
-        font-size: 20px;
-        font-weight: 600;
-        margin: 0;
-        font-weight: normal;
-        color: #fff;
-        margin-bottom: 10px;
-      }
-
-      .my-counter-number {
-        font-size: 45px;
-        font-weight: 700;
-        margin: 0;
-        color: #fff;
-
-        &.per:after {
-          content: "%";
-        }
-      }
-    }
-  }
-`;
+const DashboardContainer = styled.div``;
 
 const Dashboard = memo(() => {
   const { loading, status, message, item } = useSelector((state) => state.TitanicSlice);
@@ -104,7 +62,10 @@ const Dashboard = memo(() => {
         </div>
       )}
 
-      <div className="counter-box">
+      <ScoreBoard />
+      <GraphBoard />
+
+      {/* <div className="counter-box">
         <div className="my-counter">
           <h2>전체 탑승객 수</h2>
           <CountUp
@@ -149,7 +110,7 @@ const Dashboard = memo(() => {
             className="my-counter-number per"
           />
         </div>
-      </div>
+      </div> */}
 
       {/* 데이터를 잘 가져왔는지 확인 (임시) */}
       {/* {item && <p> {JSON.stringify(item)} </p>} */}
