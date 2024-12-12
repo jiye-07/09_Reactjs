@@ -20,12 +20,18 @@ import {
 
 import { Bar } from "react-chartjs-2";
 
+// 미디어쿼리
+import mq from "../../components/MediaQuery";
+
 // chart.js 에서 import한 Chaet 클래스에 나머지 import 요소들을 등록한다
 Chart.register(CategoryScale, LinearScale, Title, Tooltip, Legend, BarElement);
 
 const Graph1Container = styled.div`
-  /* background-color: #1492ff55; */
-  flex: 1 0 50%;
+  width: 50%;
+
+  ${mq.maxWidth("md")`
+    width: 100%;
+  `}
 
   .container {
     /* background-color: #1492ff77; */
@@ -44,6 +50,8 @@ const Graph1 = memo(() => {
       return { key: null, values: null };
     }
 
+    console.group("Graph1");
+
     const ageData = item.reduce((acc, cur) => {
       const ageLevel = `${parseInt(cur.age / 10) * 10}대`;
 
@@ -52,6 +60,8 @@ const Graph1 = memo(() => {
       } else {
         acc[ageLevel]++;
       }
+
+      console.groupEnd();
 
       return acc;
     }, {});
@@ -73,40 +83,42 @@ const Graph1 = memo(() => {
   return (
     <Graph1Container>
       <div className="container">
-        <Bar
-          data={{
-            labels: keys,
-            datasets: [
-              {
-                label: "명",
-                data: values,
-                backgroundColor: "rgba(255, 99, 132, 0.5)",
-                borderColor: "rgba(255, 99, 132, 1)",
-                borderWidth: 1,
-              },
-            ],
-          }}
-          options={{
-            // 반응형 기능 사용
-            Responsive: true,
-            // 세로 높이를 스스로 설정 (false인 경우 부모에 맞춤)
-            maintainAspectRatio: false,
-            plugins: {
-              // 범주의 위치
-              legend: {
-                position: "bottom",
-              },
-              title: {
-                display: true,
-                text: "연령별 탑승객 집계",
-                font: {
-                  size: 18,
-                  color: "#000",
+        {keys && values && (
+          <Bar
+            data={{
+              labels: keys,
+              datasets: [
+                {
+                  label: "명",
+                  data: values,
+                  backgroundColor: "rgba(255, 99, 132, 0.5)",
+                  borderColor: "rgba(255, 99, 132, 1)",
+                  borderWidth: 1,
+                },
+              ],
+            }}
+            options={{
+              // 반응형 기능 사용
+              Responsive: true,
+              // 세로 높이를 스스로 설정 (false인 경우 부모에 맞춤)
+              maintainAspectRatio: false,
+              plugins: {
+                // 범주의 위치
+                legend: {
+                  position: "bottom",
+                },
+                title: {
+                  display: true,
+                  text: "연령별 탑승객 집계",
+                  font: {
+                    size: 18,
+                    color: "#000",
+                  },
                 },
               },
-            },
-          }}
-        ></Bar>
+            }}
+          ></Bar>
+        )}
       </div>
     </Graph1Container>
   );
