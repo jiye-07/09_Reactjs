@@ -12,7 +12,7 @@ import { Line } from "react-chartjs-2";
 
 Chart.register(CategoryScale, LinearScale, PointElement, Title, Tooltip, Legend, LineElement);
 
-const NewMemberMonthGraphContainer = styled.div`
+const NewMemberMGraphContainer = styled.div`
   width: 100%;
 
   .NewMember-graph {
@@ -24,7 +24,7 @@ const NewMemberMonthGraphContainer = styled.div`
   `}
 `;
 
-const NewMemberMonthGraph = memo(() => {
+const NewMemberMGraph = memo(() => {
   const { monthly } = useSelector((state) => state.NewMemberSlice);
   console.log(monthly);
 
@@ -48,7 +48,7 @@ const NewMemberMonthGraph = memo(() => {
   }, [monthly]);
 
   return (
-    <NewMemberMonthGraphContainer>
+    <NewMemberMGraphContainer>
       <div className="NewMember-graph">
         {/* {NewMemberDate && JSON.stringify(NewMemberDate)} */}
         {/* {NewMemberTotal && JSON.stringify(NewMemberTotal)} */}
@@ -87,8 +87,8 @@ const NewMemberMonthGraph = memo(() => {
           />
         )}
       </div>
-    </NewMemberMonthGraphContainer>
+    </NewMemberMGraphContainer>
   );
 });
 
-export default NewMemberMonthGraph;
+export default NewMemberMGraph;

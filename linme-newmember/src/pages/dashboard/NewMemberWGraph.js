@@ -12,7 +12,7 @@ import { Line } from "react-chartjs-2";
 
 Chart.register(CategoryScale, LinearScale, PointElement, Title, Tooltip, Legend, LineElement);
 
-const NewMemberWeekGraphContainer = styled.div`
+const NewMemberWGraphContainer = styled.div`
   width: 100%;
 
   .NewMember-graph {
@@ -24,7 +24,7 @@ const NewMemberWeekGraphContainer = styled.div`
   `}
 `;
 
-const NewMemberWeekGraph = memo(() => {
+const NewMemberWGraph = memo(() => {
   const { weekly } = useSelector((state) => state.NewMemberSlice);
   console.log(weekly);
 
@@ -48,7 +48,7 @@ const NewMemberWeekGraph = memo(() => {
   }, [weekly]);
 
   return (
-    <NewMemberWeekGraphContainer>
+    <NewMemberWGraphContainer>
       <div className="NewMember-graph">
         {/* {NewMemberDate && JSON.stringify(NewMemberDate)} */}
         {/* {NewMemberTotal && JSON.stringify(NewMemberTotal)} */}
@@ -87,8 +87,8 @@ const NewMemberWeekGraph = memo(() => {
           />
         )}
       </div>
-    </NewMemberWeekGraphContainer>
+    </NewMemberWGraphContainer>
   );
 });
 
-export default NewMemberWeekGraph;
+export default NewMemberWGraph;
